@@ -1,0 +1,42 @@
+#!/usr/bin/env perl
+
+# argon2id - Go password hashing utility using Argon2
+# Copyright (C) 2019 Synacor, Inc.
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+use 5.016;
+use warnings;
+use English qw(-no_match_vars);
+
+my @files_without_license;
+
+chomp( my @go_files = grep { /\.go$/ } `git ls-files --with-tree \$(git hash-object -t tree /dev/null)` );
+for my $file ( @go_files ) {
+    system("git show :$file | ack 'GNU General Public License' > /dev/null 2>&1");
+    my $has_license = $? >> 8 == 0;
+    if ( $has_license ) {
+        next;
+    }
+
+    
+    push @files_without_license, $file;
+}
+
+if ( @files_without_license ) {
+    say "The following files are missing a license header:";
+    say " • $ARG" for @files_without_license;
+
+    exit 1;
+}
