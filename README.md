@@ -30,7 +30,7 @@ if err == nil {
 }
 ```
 
-## Comamnd Line Tool
+## Command Line Tool
 
 There's also a command line tool that can be installed:
 
