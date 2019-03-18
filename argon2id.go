@@ -101,7 +101,6 @@ func HashPassword(password string, time, memory uint32, threads uint8, keyLen ui
 
 	salt, err := generateSalt()
 	if err != nil {
-		// not coverable
 		return "", err
 	}
 
@@ -169,7 +168,6 @@ func generateSalt() ([]byte, error) {
 	salt := make([]byte, saltLen)
 	_, err := rand.Read(salt)
 	if err != nil {
-		// not coverable
 		return nil, err
 	}
 
