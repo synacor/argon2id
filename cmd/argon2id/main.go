@@ -114,7 +114,7 @@ func runCommand(stdout, stderr io.Writer) int {
 func usage(flagset *flag.FlagSet, stderr io.Writer) {
 	fmt.Fprintf(stderr, "usage of %s...\n", os.Args[0])
 	fmt.Fprintf(stderr, "         %s # prompt for password, output a hash of the password\n", os.Args[0])
-	fmt.Fprintf(stderr, "         %s -c <hashed-password> [-n] [-time <time-complexity>] [-memory <memory-complexity>] [-threads <num-threads>] [-keylen <key-length>] # compare the password (via prompt) to the hashed-password\n", os.Args[0])
+	fmt.Fprintf(stderr, "         %s -c <hashed-password> [-n] [-q] [-time <time-complexity>] [-memory <memory-complexity>] [-threads <num-threads>] [-keylen <key-length>] # compare the password (via prompt) to the hashed-password\n", os.Args[0])
 
 	flagset.PrintDefaults()
 }
