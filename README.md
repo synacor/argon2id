@@ -1,5 +1,7 @@
 # argon2id - A utility for hashing passwords using argon2id
 
+[![Documentation](https://godoc.org/github.com/github.com/synacor/argon2id?status.svg)](http://godoc.org/github.com/synacor/argon2id) [![Go Report Card](https://goreportcard.com/badge/github.com/synacor/argon2id)](https://goreportcard.com/report/github.com/synacor/argon2id)
+
 This library provides some additional functionality around [golang.org/x/crypto/argon2](https://godoc.org/golang.org/x/crypto/argon2) in order to provide a mechanism for serializing the hashed password with its salt and inputs and then a method for comparing a password against this serialized hash.
 
 ## Getting Started
